@@ -1,0 +1,287 @@
+
+<html>
+    <head>
+        <title>SIGECOM-CAJA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body  >
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelLinea" class="panel panel-primary">
+            <div class="panel-heading centrado">Caja | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>ID LINEA</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_cobrodetalle" name="id_cobrodetalle" type="text" class="form-control input-sm" placeholder="Id" >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>ID VENTA</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_factura" name="id_factura" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <br>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdFactura" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-2">
+                            <span>TOTAL VENTA</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="total" name="total" type="text" class="form-control input-sm" placeholder="TOTAL VENTA" readonly="readonly" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span>PAGO</span>
+                        </div> 
+                        <div class="col-md-3">
+                            <select name="id_formacobro" id="id_formacobro" class="form-control input-sm" >
+                                <option selected value="0">Seleccionar</option>
+                                <option value="1">EFECTIVO</option> 
+                                <option value="2">TARJETA</option> 
+                            </select>
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span>IMPORTE</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="importe" name="importe" type="text" class="form-control input-sm" placeholder="importe" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn btn-primary btn-sm">Agregar</button>
+                <button id="botonEliminarLinea" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+        </div>
+
+        <!--- PANELDISEÑO--->
+        <div id="panelPrograma">
+            <div id="panelDiseño" class="panel panel-primary">
+
+                <div class="panel-heading centrado">Cajas | <span id="snombre_empresa"></span> | <span id="susuario_usuario"></span></div>
+                <div class="panel-body">
+                    <form id="formPrograma">
+                        <br>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span>ID</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_usuario" name="id_usuario" type="text" class="form-control" >                         
+                            </div>
+                            <div class="col-md-1">
+                                <span> CAJERO </span>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="nombre_usuario" name="nombre_usuario" type="text" class="form-control 
+                                       input-sm" placeholder="Nombre Usuario " readonly="readonly">                         
+                            </div>
+                        </div>
+               
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span>FECHA</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="fecha_apertura" name="fecha_apertura" type="date" class="form-control 
+                                       input-sm" >                         
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span>MONTO </span>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="monto_apertura" name="monto_apertura" type="text" class="form-control 
+                                       input-sm" >                         
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span>ESTADO </span>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="estado_caja" name="estado_caja" type="text" class="form-control input-sm" placeholder="Estado" disabled="disabled" readonly="readonly">
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <div id="detalle" hidden="">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id Venta</th>
+                                    <th>Id Pago</th>
+                                    <th>Forma Pago</th>
+                                    <th>Fecha </th>
+                                    <th>Monto Apertura</th>
+                                    <th>Estado Caja </th>
+
+                                    <th class="centrado"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="contenidoDetalle">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-footer centrado">
+                    <button id="botonCerrarCaja" type="button" class="btn btn-primary btn-sm">Cerrar Caja</button>
+                    <button id="botonpedido" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button id="botonSalir" type="button" class="btn btn-primary btn-sm">Salir</button>
+                </div>
+            </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Anular</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funcion.js" type="text/javascript"></script>
+        <script>
+                                       verificarSesion(true);
+                                      
+                                        $("#buscar").css("display", "none");
+                                        $("#panelLinea").css("display", "none");
+                                       
+        setTimeout('buscarIdCaja()', 500);
+
+                                
+                                       
+                                        $("#id_formacobro").focus();
+                                        // siguienteCampo("#id_formacobro","#nombre_formacobro",false);
+                                        $("#id_formacobro").focusout(function (event) {
+                                            if ($("#id_formacobro").val() === "") {
+                                                $("#id_formacobro").val("0");
+                                            }
+                                            buscarIdFormaCobro();
+                                        });
+
+                                        $("#id_factura").focusout(function (event) {
+                                            if ($("#id_factura").val() === "") {
+                                                $("#id_factura").val("0");
+                                            }
+                                            buscarIdVenta();
+                                            var id = $("#id_factura").val();
+                                            $("#id_factura").val("0");
+                                            var img = "<img src='../../../img/pedidos/" + id + ".jpg' alt=''>";
+                                            $("#foto").html(img);
+
+                                        });
+                                        $("#botonBuscarIdCaja").on('click', function () {
+                                            $("#buscar").load("buscar.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+                                        $("#botonBuscarIdFormaCobro").on('click', function () {
+                                            $("#buscar").load("buscarFormaCobro.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelLinea").fadeOut("slow");
+                                        });
+                                        $("#botonBuscarIdVenta").on('click', function () {
+                                            $("#buscar").load("buscarVenta.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelLinea").fadeOut("slow");
+                                        });
+
+
+                                        $("#botonAgregar").on('click', function () {
+                                            agregarCaja();
+
+                                        });
+                                         $("#botonpedido").on('click', function () {
+                                            location.href = "/ProyectoFinalZapateria/frm/procesos/ventas/pedidosclientes/cobros.html";
+                                        });
+                                        $("#botonCerrarCaja").on('click', function () {
+
+                                            modificarCaja();
+
+                                        });
+                                        $("#botonEliminarAlert").on('click', function () {
+                                            eliminarCaja();
+                                            $('#confirmarEliminar').modal('hide');
+                                        });
+                                        $("#botonSalir").on('click', function () {
+                                            location.href = "../../../menu.html";
+                                        });
+
+                                        $("#botonAgregarLinea").on('click', function () {
+                                            if (validarFormularioCaja()) {
+                                                agregarCobroDetalle();
+                                            }
+                                        });
+                                        $("#botonModificarLinea").on('click', function () {
+
+                                            modificarCobroDetalle();
+
+
+                                        });
+                                        $("#botonEliminarAlertLinea").on('click', function () {
+                                            eliminarCobroDetalle();
+                                            $('#confirmarEliminarLinea').modal('hide');
+                                        });
+                                        $("#botonSalirLinea").on('click', function () {
+                                            $("#panelLinea").fadeOut("slow");
+                                            $("#panelPrograma").fadeIn("slow");
+                                        });
+
+        </script>
+    </body>
+</html>

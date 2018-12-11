@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facturas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="54654f39-9726-4684-8dc7-c42fba57a869">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="38"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="412" height="79" uuid="dbf68c54-e83d-4869-b56e-5e0217caf6eb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="1" width="169" height="23" uuid="373451f6-afc7-483a-b91f-ad56a4103aee"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Exclusividades Angi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="199" height="25" uuid="a5f56e03-3ceb-455b-a7ed-5ea4eb415bc7"/>
+				<text><![CDATA[ Mcal. Estigarribia esquina gral.Caballero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="131" height="30" uuid="679f850d-6dd3-4f7b-9ede-7964a24db690"/>
+				<text><![CDATA[Mercado San Lorenzo  Venta de Calzados en gral.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="412" y="0" width="390" height="79" uuid="cfd34b46-8903-4dc5-b23c-31d1b8a8587a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="507" y="4" width="146" height="20" uuid="90265a1b-3327-4fb8-af44-9b1db9489b53"/>
+				<text><![CDATA[ORDEN DE IMPRESIÓN N° ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36">
+			<rectangle>
+				<reportElement x="412" y="0" width="390" height="36" uuid="c9fef881-d5e4-4133-b1ce-0bd306f77c6f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="412" height="36" uuid="ee93f2d8-21d9-4b63-87a7-49af9315657e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="4" width="123" height="20" uuid="ed0f3389-eaa3-453c-a989-d594ab362ffb"/>
+				<text><![CDATA[FECHA DE EMISIÓN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="553" y="8" width="61" height="20" uuid="c8e20b97-ed73-407f-a26c-621aff3c1c92"/>
+				<text><![CDATA[CONTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="4" width="119" height="24" uuid="394146d5-3f6d-40bd-a375-647bd6da512a"/>
+				<text><![CDATA[CONDICIÓN DE VENTA:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="614" y="8" width="15" height="20" uuid="0b9ae1a6-cecd-4c3c-960f-01736b2ac4a0"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

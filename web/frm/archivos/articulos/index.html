@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EXCLUSIVIDADES ANGI | ARTICULOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/style.css" rel="stylesheet" type="text/css"/>
+
+
+    </head>
+    <body >
+
+        <script>
+            function sololetras(e) {
+                var e;
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "  áéíóúqwertyuiopasdfghjklñzxcvbnm";
+                especiales = [8, 37, 39, 46];
+
+                tecla_especial = false;
+                for (var i in especiales) {
+                    if (key === especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if (letras.indexOf(tecla) === -1 && !tecla_especial)
+                    return false;
+            }
+        </script>
+
+        <script>
+            function SoloNumPositivos(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "0123456789";
+                especiales = [];
+
+                tecla_especial = false;
+                for (var i in especiales) {
+                    if (key === especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if (letras.indexOf(tecla) === -1 && !tecla_especial)
+                    return false;
+            }
+        </script>
+
+        <div id="confirmar">  </div>
+        <div  id="buscar"></div>
+        <div  id="panelPrograma" class="panel panel-primary" >
+            <div class="panel-heading centrado"  > Articulos | <span
+                    id="susuario_usuario"></span></div>
+
+            <div class="panel-body" >
+
+                <form id="formPrograma" >
+                    <div class="row"  >
+
+                        <div class="col-md-1"  >
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input  id="id_articulo" name="id_articulo" type="text"
+                                    class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumPositivos(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdArticulo" type="button" class="btn
+                                    btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Articulo</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_articulo" name="nombre_articulo" type="text"
+                                   class="form-control input-sm"
+                                   placeholder="Articulo" onkeyup="this.value =
+                                                   this.value.toUpperCase()" onkeypress="return sololetras(event)" >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1" >
+                            <span>Código Articulo</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="codigo_articulo" name="codigo_articulo" type="text"
+                                   class="form-control input-sm"
+                                   placeholder="Codigo Articulo" onkeyup="this.value =
+                                                   this.value.toUpperCase()" >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Precio Compra</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="precio_compra" name="precio_compra" type="text"
+                                   class="form-control input-sm" placeholder="Precio"   onkeypress="return SoloNumPositivos(event)" onkeyup=" return formatearNumero(this,this.value.charAt(this.value.length-1))">
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Precio Venta</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="precio_venta" name="precio_venta" type="text"
+                                   class="form-control input-sm" placeholder="Precio"  onkeypress="return SoloNumPositivos(event)" onkeyup=" return formatearNumero(this,this.value.charAt(this.value.length-1))">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>IVA</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="iva" name="iva" type="text"
+                                   class="form-control input-sm" placeholder="IVA" onkeypress="return SoloNumPositivos(event)" >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_color" name="id_color" type="text"
+                                   class="form-control input-sm" placeholder="Id" readonly="readonly" onkeypress="return SoloNumPositivos(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdColor" type="button" class="btn
+                                    btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Color</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_color" name="nombre_color" type="text"
+                                   class="form-control input-sm" placeholder="Color"
+                                   readonly="readonly" onkeypress="return sololetras(event)"  >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_marca" name="id_marca" type="text"
+                                   class="form-control input-sm" placeholder="Id"  readonly="readonly" onkeypress="return SoloNumPositivos(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdMarca" type="button" class="btn
+                                    btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Marca</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_marca" name="nombre_marca" type="text"
+                                   class="form-control input-sm" placeholder="Marca"
+                                   readonly="readonly" onkeypress="return sololetras(event)" >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_tipocalzado" name="id_tipocalzado" type="text"
+                                   class="form-control input-sm" placeholder="Id"  readonly="readonly" onkeypress="return SoloNumPositivos(event)"  >
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdTipoCalzado" type="button" class="btn
+                                    btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Tipo Calzado</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_tipocalzado" name="nombre_tipocalzado" type="text"
+                                   class="form-control input-sm" placeholder="Tipo Calzado"
+                                   readonly="readonly" onkeypress="return sololetras(event)" >
+                        </div>
+                    </div>
+                 
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_calce" name="id_calce" type="text"
+                                   class="form-control input-sm" placeholder="Id" readonly="readonly" onkeypress="return SoloNumPositivos(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCalce" type="button" class="btn
+                                    btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Calce</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="numero_calce" name="numero_calce" type="text"
+                                   class="form-control input-sm" placeholder="Calce"
+                                   readonly="readonly" >
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_categoriacalce" name="nombre_categoriacalce" type="text"
+                                   class="form-control input-sm" placeholder="Categoria Calce"
+                                   readonly="readonly" >
+                        </div>
+                    </div>
+                </form>       
+            </div>
+
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary
+                        btn-sm">Agregar</button>
+                <button id="botonModificar" type="button" class="btn btn-primary
+                        btn-sm">Modificar</button>
+                <button id="botonEliminar" type="button" class="btn btn-primary btn-sm"
+                        data-toggle="modal"
+                        data-target="#confirmarEliminar">Eliminar</button>
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+        </div>
+
+        <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">
+                                &times;  </span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">System Message</h4>
+                    </div> 
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class=" btn btn-primary
+                                btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-primary btn-sm"
+                                data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funcion.js" type="text/javascript"></script>
+
+        <script>
+                                       verificarSesion(true);
+                                       $("#buscar").css("display", "none");
+                                       $("#id_articulo").focus();
+                                       // siguienteCampo("#id_articulo","#nombre_articulo",false);
+                                       $("#id_articulo").focusout(function (event) {
+                                           if ($("#id_articulo").val() === "") {
+                                               $("#id_articulo").val("0");
+                                           }
+                                           buscarIdArticulo();
+                                       });
+                                       $("#botonBuscarIdArticulo").on('click', function () {
+                                           $("#buscar").load("buscarArticulo.html");
+                                           $("#buscar").fadeIn("slow");
+                                           $("#panelPrograma").fadeOut("slow");
+                                       });
+
+
+                                       $("#id_color").focusout(function (event) {
+                                           if ($("#id_color").val() === "") {
+                                               $("#id_color").val("0");
+                                           }
+                                           //no funcionaba por el nombre buscarId le falto agreagr Color// 
+                                           buscarIdColor();
+                                       });
+                                       $("#botonBuscarIdColor").on('click', function () {
+                                           $("#buscar").load("buscarColor.html");
+                                           $("#buscar").fadeIn("slow");
+                                           $("#panelPrograma").fadeOut("slow");
+                                       });
+                                       $("#id_marca").focusout(function (event) {
+                                           if ($("#id_marca").val() === "") {
+                                               $("#id_marca").val("0");
+                                           }
+                                           buscarIdMarca();
+                                       });
+                                       $("#botonBuscarIdMarca").on('click', function () {
+                                           $("#buscar").load("buscarMarca.html");
+                                           $("#buscar").fadeIn("slow");
+                                           $("#panelPrograma").fadeOut("slow");
+                                       });
+                                       $("#id_tipocalzado").focusout(function (event) {
+                                           if ($("#id_tipocalzado").val() === "") {
+                                               $("#id_tipocalzado").val("0");
+                                           }
+                                           buscarIdTipoCalzado();
+                                       });
+
+                                       $("#botonBuscarIdTipoCalzado").on('click', function () {
+                                           $("#buscar").load("buscarTipoCalzado.html");
+                                           $("#buscar").fadeIn("slow");
+                                           $("#panelPrograma").fadeOut("slow");
+                                       });
+
+                                       $("#id_calce").focusout(function (event) {
+                                           if ($("#id_calce").val() === "") {
+                                               $("#id_calce").val("0");
+                                           }
+                                           buscarIdCalce();
+                                       });
+                                       $("#botonBuscarIdCalce").on('click', function () {
+                                           $("#buscar").load("buscarCalce.html");
+                                           $("#buscar").fadeIn("slow");
+                                           $("#panelPrograma").fadeOut("slow");
+                                       });
+                                       $("#botonAgregar").on('click', function () {
+                                           //if (validarFormulario()) {
+                                           agregar();
+                                           //}
+                                       });
+                                       $("#botonInsertarColor").on('click', function () {
+                                           //if (validarFormulario()) {
+                                           insertarcolor();
+                                           //}
+                                       });
+
+
+                                       $("#botonModificar").on('click', function () {
+                                           //if (validarFormulario()) {
+                                           modificarArticulo();
+                                           //}
+                                       });
+
+                                       $("#botonEliminarAlert").on('click', function () {
+                                           eliminarArticulo();
+                                           $('#confirmarEliminar').modal('hide');
+
+                                       });
+                                       $("#botonSalir").on('click', function () {
+                                           location.href = "../../../menu.html";
+                                       });
+
+        </script>
+
+    </body>
+</html>
+
